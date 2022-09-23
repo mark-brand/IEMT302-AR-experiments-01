@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import imutils
+#import imutils
 
 # function to detect ArUco Markers
 def findArucoMarkers(img):
@@ -99,8 +99,8 @@ while (video.isOpened()):
                     output = cv2.add(warpedMultiplied, imageMultiplied)
                     output = output.astype("uint8")
                     cv2.imshow("output", output)
-
-    # cv2.imshow("TheFrame", video_frame)
+        else:
+            cv2.imshow("TheFrame", video_frame)
     ret, video_frame = video.read()
     key = cv2.waitKey(20)
     # if key q is pressed then break
@@ -108,3 +108,6 @@ while (video.isOpened()):
         break
 
 # finally destroy/close all open windows
+video.release()
+cv2.destroyAllWindows()
+print("Done.")
